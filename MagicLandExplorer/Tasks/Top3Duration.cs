@@ -18,7 +18,7 @@ namespace MagicLandExplorer.Tasks
                          orderby (Int32.Parse(destination.Duration)) descending 
                          select destination).Take(3);
 
-            int i = 0;
+            int i = 1;
             Console.WriteLine("Top 3 longest destinations durations: \n");
             foreach (var duration in query)
             {

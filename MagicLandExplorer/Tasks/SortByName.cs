@@ -16,7 +16,7 @@ namespace MagicLandExplorer.Tasks
                         orderby destination.Name
                         select destination;
 
-            int i = 0;
+            int i = 1;
             Console.WriteLine("Destinations ordered alphabetically : \n");
             foreach (var name in query)
             {

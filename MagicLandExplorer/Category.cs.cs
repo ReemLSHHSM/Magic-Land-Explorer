@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 
+
 public class Category
 {
     [JsonProperty("category")]
@@ -20,10 +21,14 @@ public class Category
 
     public static (List<Category>,List<Destination>) getData()
     {
-        
-        string json = File.ReadAllText("C:\\Users\\LTUC\\source\\repos\\MagicLandExplorer\\MagicLandExplorer\\data\\data (1).json");
+
+        string json = File.ReadAllText("data/data2.json");
         List<Category> categories = JsonConvert.DeserializeObject<List<Category>>(json);
+
+
         List <Destination> destinations = new List<Destination>();
+
+
         foreach (dynamic category in categories)
         {
            // Console.WriteLine($"Category: {category.CategoryName}");

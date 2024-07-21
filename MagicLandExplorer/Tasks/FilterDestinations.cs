@@ -18,7 +18,7 @@ namespace MagicLandExplorer.Tasks
                         select destination;
 
             Console.WriteLine("Destinations with duration time less than 100 minutes: \n");
-            int i = 0;
+            int i = 1;
             foreach (var destination in query) {
                 Console.Write($"[{i}] ");
                 Console.Write(destination.Name);
