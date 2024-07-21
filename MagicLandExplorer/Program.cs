@@ -1,6 +1,6 @@
 ﻿using System;
 using MagicLandExplorer.Tasks;
-
+using Newtonsoft.Json;
 namespace MagicLandExplorer
 {
     internal class Program
@@ -22,7 +22,7 @@ namespace MagicLandExplorer
 
                 Console.WriteLine("What question would you like to ask? \n");
                 string answer = Console.ReadLine();
-                Console.WriteLine();
+                
                 answer_tester tester = test_answer;
                 // Invoking 
                 tester(ref answer);
@@ -49,6 +49,7 @@ namespace MagicLandExplorer
                             del = SortByName.sortNames;
                             del.Invoke();
                             validChoice = true;
+                            Console.WriteLine();
                             break;
                         case "4":
                             del = Top3Duration.getTop3;
