@@ -18,32 +18,33 @@ public class Category
         Destinations = new List<Destination>();
     }
 
-    public static List<Category> getData()
+    public static (List<Category>,List<Destination>) getData()
     {
         
         string json = File.ReadAllText("C:\\Users\\LTUC\\source\\repos\\MagicLandExplorer\\MagicLandExplorer\\data\\data (1).json");
         List<Category> categories = JsonConvert.DeserializeObject<List<Category>>(json);
-
-        foreach (var category in categories)
+        List <Destination> destinations = new List<Destination>();
+        foreach (dynamic category in categories)
         {
-            Console.WriteLine($"Category: {category.CategoryName}");
-            foreach (var destination in category.Destinations)
+           // Console.WriteLine($"Category: {category.CategoryName}");
+            foreach (dynamic destination in category.Destinations)
             {
-                Console.WriteLine($"  Name: {destination.Name}");
-                Console.WriteLine($"  Type: {destination.Type}");
-                Console.WriteLine($"  Location: {destination.Location}");
+                destinations.Add(destination);
+                //Console.WriteLine($"  Name: {destination.Name}");
+                //Console.WriteLine($"  Type: {destination.Type}");
+                //Console.WriteLine($"  Location: {destination.Location}");
                 if (!string.IsNullOrEmpty(destination.Duration))
                 {
-                    destination.Duration = destination.Duration.Replace(" minutes", "");
-                    Console.WriteLine($"Duration: {destination.Duration}");
+                    destination.Duration =destination.Duration.Replace(" minutes", "").Trim();
+                    //Console.WriteLine($"Duration: {destination.Duration}");
                 }
-                Console.WriteLine($"  Description: {destination.Description}");
-                Console.WriteLine();
+               // Console.WriteLine($"  Description: {destination.Description}");
+               // Console.WriteLine();
             }
         }
 
 
-        return categories;
+        return (categories,destinations);
 
     }
 }
